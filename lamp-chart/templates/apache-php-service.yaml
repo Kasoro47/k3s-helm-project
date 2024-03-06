@@ -3,9 +3,11 @@ kind: Service
 metadata:
   name: {{ .Values.apachePhp.name }}-service
 spec:
-  type: {{ .Values.apachePhp.type }}
+  ports:
+  - port: {{ .Values.apachePhp.port }}
+    targetPort: {{ .Values.apachePhp.targetPort }}
   selector:
     app: {{ .Values.apachePhp.name }}
-  ports:
-    - port: {{ .Values.apachePhp.port }}
-      targetPort: {{ .Values.apachePhp.targetPort }}
+  externalIPs:
+    - {{ .Values.apachePhp.externalIPs }}
+  type: {{ .Values.apachePhp.type }}

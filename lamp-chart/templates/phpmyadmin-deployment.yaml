@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: phpmyadmin
+  name: {{ .Values.phpmyadmin.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: phpmyadmin
+      app: {{ .Values.phpmyadmin.name }}
   template:
     metadata:
       labels:
@@ -20,3 +20,4 @@ spec:
               value: {{ .Values.mysql.name }}
           ports:
             - containerPort: {{ .Values.phpmyadmin.port }}
+      type: {{ .Values.phpmyadmin.type }}

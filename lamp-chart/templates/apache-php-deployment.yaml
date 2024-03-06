@@ -13,7 +13,7 @@ spec:
         app: {{ .Values.apachePhp.name }}
     spec:
       containers:
-        - name: {{ .Values.apachePhp.name }}
-          image: {{ .Values.apachePhp.image }}
-          ports:
-            - containerPort: {{ .Values.apachePhp.port }}
+      - name: {{ .Values.apachePhp.name }}
+        image: {{ .Values.apachePhp.image }}
+        ports:
+          - containerPort: {{ .Values.apachePhp.port }}
