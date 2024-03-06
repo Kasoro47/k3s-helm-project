@@ -10,8 +10,8 @@ service:
   port: 3000
 
 mysql:
-  host: "mysql"
+  host: "mysql.lamp-stack.svc.cluster.local"
   database: "mysql"
-  user: "user"
+  user: "root"
   passwordSecretName: "mysql-pass"
   passwordSecretKey: "password"
