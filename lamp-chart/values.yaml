@@ -1,6 +1,6 @@
 apachePhp:
   name: "apache-php"
-  image: php:7.4-apache
+  image: kasoro/apache-php:latest
   port: 80
   targetPort: 80
   type: LoadBalancer
