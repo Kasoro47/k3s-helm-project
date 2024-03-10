@@ -51,8 +51,8 @@ Pour exécuter la démo du projet, suivez les étapes ci-dessous:
 1. Assurez-vous que vous avez k3s et Helm installés sur votre machine.
 2. Clonez ce répertoire sur votre machine locale.
 3. Ouvrez un terminal et naviguez jusqu'au répertoire cloné.
-4. Exécutez `helm install my-lamp ./lamp-chart` pour déployer la stack LAMP.
-5. Exécutez `helm install my-app ./nodejs-chart` pour déployer l'application web Node.js.
-6. Utilisez `kubectl get services` pour trouver l'URL à laquelle l'application web est exposée et ouvrez-la dans votre navigateur.
+4. Exécutez `helm install lamp-release ./lamp-chart -n lamp-stack --values lamp-chart/values.yaml` pour déployer la stack LAMP.
+5. Exécutez `helm install nodejs-release ./nodejs-chart -n nodejs-stack --values nodejs-chart/values.yaml` pour déployer l'application web Node.js.
+6. Utilisez `kubectl get services -A` pour trouver l'URL à laquelle l'application web est exposée et ouvrez-la dans votre navigateur.
 
 Pour plus de détails sur notre approche, veuillez consulter le fichier `PLAN.md`.
