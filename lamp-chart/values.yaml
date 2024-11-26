@@ -1,0 +1,24 @@
+apachePhp:
+  name: "apache-php"
+  image: kasoro/apache-php:latest
+  port: 80
+  targetPort: 80
+  type: LoadBalancer
+  nodePort: 80
+  externalIPs: 192.168.0.193
+
+mysql:
+  name: "mysql"
+  image: mysql:5.7
+  port: 3306
+  passwordSecretName: "mysql-pass"
+  passwordSecretKey: "password"
+  type: ClusterIP
+
+phpmyadmin:
+  name: "phpmyadmin"
+  image: phpmyadmin/phpmyadmin
+  port: 80
+  nodePort: 30080
+  type: NodePort
+  externalIPs: 192.168.0.194

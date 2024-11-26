@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.phpmyadmin.name }}-service
+spec:
+  selector:
+    app: {{ .Values.phpmyadmin.name }}
+  ports:
+    - port: {{ .Values.phpmyadmin.port }}
+      targetPort: {{ .Values.phpmyadmin.port }}
+  type: {{ .Values.phpmyadmin.type}}
+  externalIPs:
+    - {{ .Values.phpmyadmin.externalIPs }}

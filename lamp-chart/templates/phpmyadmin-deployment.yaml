@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.phpmyadmin.name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.phpmyadmin.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.phpmyadmin.name }}
+    spec:
+      containers:
+        - name: {{ .Values.phpmyadmin.name }}
+          image: {{ .Values.phpmyadmin.image }}
+          env:
+            - name: PMA_HOST
+              value: {{ .Values.mysql.name }}
+          ports:
+            - containerPort: {{ .Values.phpmyadmin.port }}
+      type: {{ .Values.phpmyadmin.type }}

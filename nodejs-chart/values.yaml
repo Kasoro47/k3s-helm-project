@@ -1,0 +1,20 @@
+replicaCount: 1
+
+image:
+  repository: kasoro/devops
+  pullPolicy: IfNotPresent
+  tag: latest
+
+service:
+  name: nodejs
+  type: LoadBalancer # Or NodePort to keep it local
+  port: 3000
+  nodePort: 30000
+  externalIP: 192.168.0.192
+
+mysql:
+  host: "mysql.lamp-stack.svc.cluster.local"
+  database: "mysql"
+  user: "root"
+  passwordSecretName: "mysql-pass"
+  passwordSecretKey: "password"
